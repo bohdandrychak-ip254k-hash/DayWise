@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DayWise — ШІ-планувальник дня</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="shell">
+  <header class="topbar"><div class="brand"><span class="mark">✦</span><span>DayWise</span><span class="tag">AI Planner</span></div><span class="muted small">Ваш день, без хаосу</span></header>
+  <section class="hero"><p class="eyebrow">РОЗУМНЕ ПЛАНУВАННЯ</p><h1>Зробіть більше.<br><span>Втомлюйтесь менше.</span></h1><p>Опишіть свої справи — ML-модель визначить пріоритети, а планувальник побудує реалістичний розклад.</p></section>
+  <main class="layout">
+  <section class="panel editor"><h2>✍️ Запланувати день</h2><label for="description">Ваші завдання <small>одне на рядок, за бажанням з тривалістю</small></label><textarea id="description" spellcheck="false">Терміново підготуватися до іспиту 90 хв
+Зустріч з викладачем о 13:00 45 хв
+Придбати продукти 30 хв
+Потренуватися 60 хв
+Подивитися серіал 45 хв</textarea>
+    <div class="twocol"><div><label for="day">Дата</label><input type="date" id="day"></div><div><label for="from">Початок дня</label><input type="time" id="from" value="09:00"></div><div><label for="to">Кінець дня</label><input type="time" id="to" value="21:00"></div><div><label>Нагадування</label><div class="toggleline"><input type="checkbox" id="remind"><span>За 5 хвилин</span></div></div></div>
+    <button id="generate" class="primary">✦ Створити розклад <span>→</span></button><p class="hint">Підказка: додайте «30 хв», «2 години», «о 14:30». Часові зустрічі фіксуються, інші справи сортуються за важливістю.</p><div id="error" role="alert"></div>
+  </section>
+  <section class="panel results"><div class="resultshead"><div><p class="eyebrow">ВАШ ПЛАН</p><h2 id="calendarTitle">Розклад дня</h2></div><button id="export" class="secondary" disabled>↓ .ics</button></div><div class="stats"><div><strong id="nTasks">0</strong><small>заплановано</small></div><div><strong id="nHours">0 год</strong><small>зайнятість</small></div><div><strong id="nLeft">0</strong><small>не вмістилось</small></div></div><div class="legend"><span><i class="dot high"></i>Високий</span><span><i class="dot medium"></i>Середній</span><span><i class="dot low"></i>Низький</span></div><div id="timeline" class="timeline"><div class="empty">Ваш розклад з’явиться тут після натискання кнопки.</div></div><div id="skipped"></div></section>
+  </main><footer>DayWise — навчальний прототип · Flask + scikit-learn · Дані не зберігаються на сервері</footer>
+</div>
+<script src="/static/app.js"></script>
+</body></html>
